@@ -1,8 +1,73 @@
-turquoise color   #47dbba
+/*turquoise color   #47dbba
 gray backgrounds  #f5f5f5
 red delete button #ff0000
 appointment form text input borders #e8e8e8
 landing screen plus sign #7a7a7a
-event title text color #494949
+event title text color #797979
 event location text color #828282
-search bar magnifying glass #9f9f9f
+search bar magnifying glass #9f9f9f*/
+/*borderbottom color: #d8d8d8*/
+
+/*------ App Landing Page ---------*/
+
+body {
+  font-size: 1em;
+  font-family: sans-serif;
+}
+
+header {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-size: 2em;
+  color: #47dbba;
+  border-bottom: solid 2px #d8d8d8;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.appt-title {
+  color: #797979;
+}
+
+.add-appt {
+  color: #7a7a7a;
+}
+
+input {
+  margin-top: 20px;
+  line-height: 3;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 3px;
+}
+
+.date-and-time {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.location {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.maps {
+  border: solid 1px gray;
+  height: 150px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+button {
+  display: block;
+  background-color: #47dbba;
+  color: white;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 2em;
+}
