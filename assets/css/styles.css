@@ -47,12 +47,15 @@ input {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 35px;
+  margin-bottom: 25px;
 }
 
 .location {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 25px;
 }
 
 .maps {
@@ -61,6 +64,18 @@ input {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
+  box-sizing: border-box;
+}
+
+.weather-summary {
+  background-color: #e6e6e6;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 button {
