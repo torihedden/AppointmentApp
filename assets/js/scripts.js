@@ -1,6 +1,9 @@
 $(document).ready(function(){
   'use strict';
 
+  var apptRetrieve;
+  var apptInfo;
+  var currentApptIndex;
 //code from http://jstricks.com/detect-mobile-devices-javascript-jquery/ --all code should be within this function
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   // tasks to do if it is a Mobile Device
@@ -29,16 +32,20 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
     }
 
-
     SaveDataToLocalStorage(apptInfo);
-
 
   });  ////this code made with help from http://stackoverflow.com/questions/19174525/how-to-store-array-in-localstorage-object-in-html5 & http://stackoverflow.com/questions/20936466/cannot-push-objects-in-array-in-localstorage
 
   var storage = JSON.parse(localStorage["storage"]);//bring array out of localStorage
+
   console.log(storage[0].title);
 
 
+for (var i = 0; i < storage.length; i++){
+  $(".appt-info-block-wrapper").append(
+    '<div class="appt-info-wrapper"><div class="weather-block"></div><div class="appt-block"><div class="appt-title">' + storage[i].title + '</div><div class="appt-street">' + storage[i].street + '</div><div class="appt-city">' + storage[i].city + '</div><div class="appt-date">' + storage[i].date + '</div><div class="appt-time">' + storage[i].time+ '</div></div></div>'
+  )
+};
   // // this section deletes appt objects from the appt array
   // $(".delete-appt-btn").on("click", function(){
   //   apptArray = JSON.parse(localStorage["apptArray"]);//bring array out of localStorage
@@ -46,9 +53,15 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   //
   // });//end of delete func
     //  localStorage.clear()
+
+    var cityName = "Atlanta"
+    var stateName = "GA"
+
+    $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
+
+      $(".weather-block").html(json.current_observation.weather);
+    });
+
 }
-
-
-
 
 });//this closes the entire function
