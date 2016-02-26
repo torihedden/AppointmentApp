@@ -1,14 +1,9 @@
 $(document).ready(function(){
   'use strict';
 
-  // var apptArray;
   var apptRetrieve;
   var apptInfo;
   var currentApptIndex;
-  // if(apptArray = null){
-  //   apptArray = [];
-  // }
-  // localStorage.setItem('apptArray', JSON.stringify(apptArray));//add empty array to localStorage
 //code from http://jstricks.com/detect-mobile-devices-javascript-jquery/ --all code should be within this function
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   // tasks to do if it is a Mobile Device
@@ -42,8 +37,9 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   });  ////this code made with help from http://stackoverflow.com/questions/19174525/how-to-store-array-in-localstorage-object-in-html5 & http://stackoverflow.com/questions/20936466/cannot-push-objects-in-array-in-localstorage
 
   var storage = JSON.parse(localStorage["storage"]);//bring array out of localStorage
-  console.log(storage);
-  console.log();
+
+  console.log(storage[0].title);
+
 
 for (var i = 0; i < storage.length; i++){
   $(".appt-info-block-wrapper").append(
