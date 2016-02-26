@@ -3,6 +3,7 @@ $(document).ready(function(){
   var apptArray = [];
   var apptRetrieve
   var apptInfo
+  var currentApptIndex
   localStorage.setItem('apptArray', JSON.stringify(apptArray));//add empty array to localStorage
 //code from http://jstricks.com/detect-mobile-devices-javascript-jquery/ --all code should be within this function
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -27,7 +28,10 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
   });  ////this code made with help from http://stackoverflow.com/questions/19174525/how-to-store-array-in-localstorage-object-in-html5
 
-  //this section deletes appt objects from the appt array
+
+
+
+  // // this section deletes appt objects from the appt array
   // $(".delete-appt-btn").on("click", function(){
   //   apptArray = JSON.parse(localStorage["apptArray"]);//bring array out of localStorage
   //
