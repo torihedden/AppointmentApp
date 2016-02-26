@@ -8,20 +8,20 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 }
 var submitClick = 0;
+var apptRetrieve 
 $(".save-appt-btn").on("click", function(){
   submitClick += 1;
-  // var title = $(".title-input").val();
-  // var street = $(".street-input").val();
-  // var city = $(".city-input").val();
-  // var date = $(".date-input").val();
-  // var time = $(".time-input").val();
-  // var submit + submitClick = {title: $(".title-input").val(), street: $(".street-input").val(), city: $(".city-input").val(), date: $(".date-input").val(), time: $(".time-input").val()}
-  // eval("submit" + sumbitClick )
+  ////this code sets an object into localStorage as a string and brings it back out and parses it as an object.  From http://stackoverflow.com/questions/2010892/storing-objects-in-html5-localstorage
   var apptInfo = {title: $(".title-input").val(), street: $(".street-input").val(), city: $(".city-input").val(), date: $(".date-input").val(), time: $(".time-input").val(), id: submitClick};
   console.log(apptInfo);
+   localStorage.setItem('apptInfo', JSON.stringify(apptInfo));
+   var apptRetrieve = localStorage.getItem('apptInfo');
+
+   console.log(apptRetrieve = localStorage.getItem('apptInfo'));
+   console.log('apptRetrieve: ', JSON.parse(apptRetrieve));
 });
 
-////this code sets an object into localStorage as a string and brings it back out and parses it as an object.  From http://stackoverflow.com/questions/2010892/storing-objects-in-html5-localstorage
+
 // Storage.prototype.setObject = function(key, value) {
 //     this.setItem(key, JSON.stringify(value));
 // }

@@ -167,7 +167,7 @@ input{
   margin-left: 2%;
   line-height: 1.2em;
   margin-top: .5%;
-  font-size: 2em;
+  font-size: 3em;
   font-family: "lato", sans-serif;
 }
 
@@ -206,11 +206,11 @@ input{
   font-weight: bold;
   font-size: 4em;
   font-family: "lato", sans-serif;
-  padding: 5% 15%;
-  width: 50%;
+  padding: 5% 22.9%;
+  /*width: 50%;*/
   box-sizing: border-box;
-  /*position: absolute;*/
-  /*bottom: 0;*/
+  position: absolute;
+  bottom: 0;
 }
 
 .delete-appt-btn{
@@ -255,4 +255,4 @@ input{
 
 /************************************************************
 
-*************************************************************/
+************************************************************
