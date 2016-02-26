@@ -54,12 +54,31 @@ for (var i = 0; i < storage.length; i++){
   // });//end of delete func
     //  localStorage.clear()
 
-    var cityName = "Atlanta"
-    var stateName = "GA"
+    // var splitCityState = storage[i].city.split(", ");
+    //
+    // var cityName = splitCityState[0];
+    // var stateName = splitCityState[1];
+
+    var cityName = "Durham"
+    var stateName = "NC"
 
     $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
 
-      $(".weather-block").append(json.current_observation.weather);
+      switch(json.current_observation.weather) {
+          case "Clear":
+              $(".weather-block").append('<i class="fa fa-sun-o"></i>');
+              break;
+          case "Cloudy":
+              $(".weather-block").append('<i class="fa fa-cloud-o"></i>');
+              break;
+          case "Partly Cloudy":
+              $(".weather-block").append('<i class="fa fa-cloud-o"></i>');
+              break;
+          case "Rain":
+              $(".weather-block").append('<i class="fa fa-umbrella-o"></i>');
+          default:
+              $(".weather-block").append(json.current_observation.weather);//default case is print string
+      }
     });
 
 }
