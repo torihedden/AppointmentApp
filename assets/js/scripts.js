@@ -42,6 +42,9 @@ $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + sta
   $(".weather-block").html(json.current_observation.weather);
 });
 
+<i class="fa fa-sun-o"></i>
+<i class="fa fa-cloud"></i>
+<i class="fa fa-umbrella"></i>
 
 }//this closes mobile test if true
 
