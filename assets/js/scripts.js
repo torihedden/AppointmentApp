@@ -47,7 +47,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 for (var i = 0; i < storage.length; i++){
   $(".appt-info-block-wrapper").append(
-    '<div class="appt-info-wrapper"><div class="weather-block"></div><div class="appt-block"><div class="appt-title">' + storage[i].title + '</div><div class="appt-street">' + storage[i].street + '</div><div class="appt-city">' + storage[i].city + '</div><div class="appt-date">' + storage[i].date + '</div><div class="appt-time">' + storage[i].time+ '</div></div></div>'
+    '<div class="appt-info-wrapper"><div class="weather-block"><div class="appt-time">' + storage[i].time + '</div></div><div class="appt-block"><div class="appt-title">' + storage[i].title + '</div><div class="appt-street">' + storage[i].street + '</div><div class="appt-city">' + storage[i].city + '</div><div class="appt-date">' + storage[i].date + '</div></div></div>'
   )
 };
   // // this section deletes appt objects from the appt array
@@ -63,7 +63,7 @@ for (var i = 0; i < storage.length; i++){
 
     $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
 
-      $(".weather-block").html(json.current_observation.weather);
+      $(".weather-block").append(json.current_observation.weather);
     });
 
 }
