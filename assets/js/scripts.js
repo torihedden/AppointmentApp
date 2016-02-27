@@ -128,7 +128,6 @@ for (var i = 0; i < storage.length; i++){
       switch(json.current_observation.weather) {
         case "Clear":
             $(".weather-block").append('<i class="fa fa-sun-o"></i>');
-            $(".weather-summary").append('<i class="fa fa-sun-o"></i>');
             break;
         // case "Overcast":
         // case "Cloudy":
@@ -136,7 +135,6 @@ for (var i = 0; i < storage.length; i++){
         // case "Mostly Cloudy":
         case "Scattered Clouds":
             $(".weather-block").append('<i class="fa fa-cloud-o"></i>');
-            $(".weather-summary").append('<i class="fa fa-cloud-o"></i>');
             break;
         // case "Rain":
         // case "Light Rain":
@@ -145,7 +143,6 @@ for (var i = 0; i < storage.length; i++){
         // case "Heavy Rain Showers":
         case "Rain Showers":
           $(".weather-block").append('<i class="fa fa-umbrella-o"></i>');
-          $(".weather-summary").append('<i class="fa fa-umbrella-o"></i>');
           break;
         // case "Drizzle":
         // case "Light Drizzle":
@@ -154,23 +151,20 @@ for (var i = 0; i < storage.length; i++){
         // case "Heavy Freezing Rain":
         case "Freezing Rain":
           $(".weather-block").append('<i class="fa fa-tint"></i>');//this looks like a raindrop
-          $(".weather-summary").append('<i class="fa fa-tint"></i>');
           break;
         // case "Snow":
         // case "Light Snow":
         case "Heavy Snow":
           $(".weather-block").append('<i class="fa fa-asterisk"></i>');
-          $(".weather-summary").append('<i class="fa fa-tint"></i>');
           break;
         // case "Thunderstorm":
         // case "Light Thunderstorm":
         case "Heavy Thunderstorm":
           $(".weather-block").append('<i class="fa fa-bolt"></i>');
-          $(".weather-summary").append('<i class="fa fa-tint"></i>');
           break;
         default:
             $(".weather-block").append(json.current_observation.weather);//default case is print string
-            $(".weather-summary").append('<i class="fa fa-tint"></i>');
+
       }
     });
 
