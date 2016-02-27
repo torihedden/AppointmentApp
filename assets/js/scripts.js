@@ -13,7 +13,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   //this section creates appt information from the new appt screen.
   $(".save-appt-btn").on("click", function(){
 
-  var apptInfo = {title: $(".title-input").val(), street: $(".street-input").val(), city: $(".city-input").val(), date: $(".date-input").val(), time: $(".time-input").val()};//grab appt info
+  var apptInfo = {title: $(".title-input-na").val(), street: $(".street-input-na").val(), city: $(".city-input-na").val(), date: $(".date-input-na").val(), time: $(".time-input-na").val()};//grab appt info
 
   function SaveDataToLocalStorage(data){
     var apptArray;
@@ -46,24 +46,23 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 for (var i = 0; i < storage.length; i++){
   $(".appt-info-block-wrapper").append(
     '<a href="appt-detail.html"><div class="appt-info-wrapper" id='+[i]+'><div class="weather-block"><div class="appt-time">' + storage[i].time + '</div></div><div class="appt-block"><div class="appt-title">' + storage[i].title + '</div><div class="appt-street">' + storage[i].street + '</div><div class="appt-city">' + storage[i].city + '</div><div class="appt-date">' + storage[i].date + '</div></div></div></a>')
-
-
-
-    // console.log(clickedDiv);
   };
+
+
   //this finds which appt was clicked on index.html
   $(".appt-info-wrapper").click(function() {
      var clickedIndex = $(this).attr('id');
      localStorage.setItem('clickedIndex', clickedIndex);
 
   });
+
 //this section migrates a clicked appt on index.html to appt-detail.html
   var clickedIndex = localStorage.getItem('clickedIndex');
   console.log(clickedIndex);
   $(".title-txt").append(storage[clickedIndex].title);
-  $(".date").append("Today at "+ storage[clickedIndex].date);
-  $(".time").append(storage[clickedIndex].time);
-  $(".location").append("Located at "+ storage[clickedIndex].street + ", "+storage[clickedIndex].city);
+  $(".date-ad").append("Today at </br>"+ storage[clickedIndex].date);
+  $(".time-ad").append(storage[clickedIndex].time);
+  $(".location-ad").append("Located at </br>"+ storage[clickedIndex].street + ", "+storage[clickedIndex].city);
 //this section migrates a clicked appt on index.html to edit-appt.html
   $(".street-input").val($(".street-input").val()+storage[clickedIndex].street);
   $(".city-input").val($(".city-input").val()+storage[clickedIndex].city);
