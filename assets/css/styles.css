@@ -106,7 +106,7 @@ header {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  padding: 15px;
+  /*padding: 15px;*/
   box-sizing: border-box;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -252,10 +252,9 @@ appt-detail.html page styling
   font-size: 2em;
 }
 
-
-
-
-
+i {
+  color: red;
+}
 
 .save-appt-btn-e{
   text-decoration: none;
