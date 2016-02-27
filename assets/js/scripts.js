@@ -128,6 +128,42 @@ for (var i = 0; i < storage.length; i++){
   $(".time-ad").append(storage[clickedIndex].time);
   $(".location-ad").append("Located at </br>"+ storage[clickedIndex].street + ", "+storage[clickedIndex].city);
 
+  var splitCity = (storage[clickedIndex].city).split(", ");
+  console.log(splitCity);
+
+  var detailCity = splitCity[0]
+  var detailState = splitCity[1]
+
+  $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + detailState + "/" + detailCity + ".json", function(json) {
+
+    console.log(detailCity);
+    console.log(detailState);
+
+    switch(json.current_observation.weather) {
+      case "Clear":
+          $(".weather-summary").append('<i class="fa fa-sun-o"></i>');
+          break;
+      case "Scattered Clouds":
+          $(".weather-summary").append('<i class="fa fa-cloud-o"></i>');
+          break;
+      case "Rain Showers":
+        $(".weather-summary").append('<i class="fa fa-umbrella-o"></i>');
+        break;
+      case "Freezing Rain":
+        $(".weather-summary").append('<i class="fa fa-tint"></i>');//this looks like a raindrop
+        break;
+      case "Heavy Snow":
+        $(".weather-summary").append('<i class="fa fa-asterisk"></i>');
+        break;
+      case "Heavy Thunderstorm":
+        $(".weather-summary").append('<i class="fa fa-bolt"></i>');
+        break;
+      default:
+          $(".weather-summary").append(json.current_observation.weather);//default case is print string
+
+    }
+  });
+
 //this section migrates a clicked appt on index.html to edit-appt.html
   $(".street-input").val($(".street-input").val()+storage[clickedIndex].street);
   $(".city-input").val($(".city-input").val()+storage[clickedIndex].city);
@@ -188,7 +224,6 @@ for (var i = 0; i < storage.length; i++){
       switch(json.current_observation.weather) {
         case "Clear":
             $(".weather-block").append('<i class="fa fa-sun-o"></i>');
-            $(".weather-summary").append('<i class="fa fa-sun-o"></i>');
             break;
         // case "Overcast":
         // case "Cloudy":
@@ -196,7 +231,6 @@ for (var i = 0; i < storage.length; i++){
         // case "Mostly Cloudy":
         case "Scattered Clouds":
             $(".weather-block").append('<i class="fa fa-cloud-o"></i>');
-            $(".weather-summary").append('<i class="fa fa-cloud-o"></i>');
             break;
         // case "Rain":
         // case "Light Rain":
@@ -205,7 +239,6 @@ for (var i = 0; i < storage.length; i++){
         // case "Heavy Rain Showers":
         case "Rain Showers":
           $(".weather-block").append('<i class="fa fa-umbrella-o"></i>');
-          $(".weather-summary").append('<i class="fa fa-umbrella-o"></i>');
           break;
         // case "Drizzle":
         // case "Light Drizzle":
@@ -214,23 +247,20 @@ for (var i = 0; i < storage.length; i++){
         // case "Heavy Freezing Rain":
         case "Freezing Rain":
           $(".weather-block").append('<i class="fa fa-tint"></i>');//this looks like a raindrop
-          $(".weather-summary").append('<i class="fa fa-tint"></i>');
           break;
         // case "Snow":
         // case "Light Snow":
         case "Heavy Snow":
           $(".weather-block").append('<i class="fa fa-asterisk"></i>');
-          $(".weather-summary").append('<i class="fa fa-tint"></i>');
           break;
         // case "Thunderstorm":
         // case "Light Thunderstorm":
         case "Heavy Thunderstorm":
           $(".weather-block").append('<i class="fa fa-bolt"></i>');
-          $(".weather-summary").append('<i class="fa fa-tint"></i>');
           break;
         default:
             $(".weather-block").append(json.current_observation.weather);//default case is print string
-            $(".weather-summary").append('<i class="fa fa-tint"></i>');
+
       }
     });
 
@@ -240,5 +270,10 @@ for (var i = 0; i < storage.length; i++){
     )
 
 
+} else {
+  $("header").toggle();
+  $("input").toggle();
+  console.log("Please use your mobile device!!")
+  $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.</div><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>')
 }
 });//this closes the entire function

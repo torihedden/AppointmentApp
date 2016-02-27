@@ -106,7 +106,7 @@ header {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  padding: 15px;
+  /*padding: 15px;*/
   box-sizing: border-box;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -252,10 +252,9 @@ appt-detail.html page styling
   font-size: 2em;
 }
 
-
-
-
-
+i {
+  color: red;
+}
 
 .save-appt-btn-e{
   text-decoration: none;
@@ -272,11 +271,25 @@ appt-detail.html page styling
   bottom: 0;
 }
 
+/************************************************************
+please use with mobile error message
+************************************************************/
 
+.no-mobile {
+  font-family: "Lato", sans-serif;
+  font-size: 3em;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 10%;
+}
 
-
-
-
+.mobile-phone {
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 10%;
+}
 
 
 
