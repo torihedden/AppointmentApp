@@ -42,7 +42,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   // console.log(storage[0].title);
   // localStorage.clear();
 
-//this block'o'code populates index.html with appointemnts
+//this block'o'code populates index.html with appointments
 for (var i = 0; i < storage.length; i++){
   $(".appt-info-block-wrapper").append(
     '<a href="appt-detail.html"><div class="appt-info-wrapper" id='+[i]+'><div class="weather-block"><div class="appt-time">' + storage[i].time + '</div></div><div class="appt-block"><div class="appt-title">' + storage[i].title + '</div><div class="appt-street">' + storage[i].street + '</div><div class="appt-city">' + storage[i].city + '</div><div class="appt-date">' + storage[i].date + '</div></div></div></a>')
@@ -99,19 +99,44 @@ for (var i = 0; i < storage.length; i++){
     $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
 
       switch(json.current_observation.weather) {
-          case "Clear":
-              $(".weather-block").append('<i class="fa fa-sun-o"></i>');
-              break;
-          case "Cloudy":
-              $(".weather-block").append('<i class="fa fa-cloud-o"></i>');
-              break;
-          case "Partly Cloudy":
-              $(".weather-block").append('<i class="fa fa-cloud-o"></i>');
-              break;
-          case "Rain":
-              $(".weather-block").append('<i class="fa fa-umbrella-o"></i>');
-          default:
-              $(".weather-block").append(json.current_observation.weather);//default case is print string
+        case "Clear":
+            $(".weather-block").html(<i class="fa fa-sun-o"></i>);
+            break;
+        case "Overcast":
+        case "Cloudy":
+        case "Partly Cloudy":
+        case "Mostly Cloudy":
+        case "Scattered Clouds":
+            $(".weather-block").html(<i class="fa fa-cloud-o"></i>);
+            break;
+        case "Rain":
+        case "Light Rain":
+        case "Heavy Rain":
+        case "Light Rain Showers":
+        case "Heavy Rain Showers":
+        case "Rain Showers":
+          $(".weather-block").html(<i class="fa fa-umbrella-o"></i>);
+          break;
+        case "Drizzle":
+        case "Light Drizzle":
+        case "Heavy Drizzle":
+        case "Light Freezing Rain":
+        case "Heavy Freezing Rain":
+        case "Freezing Rain":
+          $(".weather-block").html(<i class="fa fa-tint"></i>);//this looks like a raindrop
+          break;
+        case "Snow":
+        case "Light Snow":
+        case "Heavy Snow":
+          $(".weather-block").html(<i class="fa fa-asterisk"></i>);
+          break;
+        case "Thunderstorm":
+        case "Light Thunderstorm":
+        case "Heavy Thunderstorm":
+          $(".weather-block").html(<i class="fa fa-bolt"></i>);
+          break;
+        default:
+            $(".weather-block").html(json.current_observation.weather);//default case is print string
       }
     });
 
