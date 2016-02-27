@@ -29,6 +29,51 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
     }
 
+  //this section sanitizes user input for city, state, date, and time.
+
+  $(".city-input-na").blur(function splitCity(){
+    var cityStateNA = $(".city-input-na").val()
+    if(cityStateNA.indexOf(',') != -1){
+      var splitCityStateNA =cityStateNA.split(", ")
+      var cityNameNA = splitCityStateNA[0];
+      var stateNameNA = splitCityStateNA[1];
+    } else{
+        alert("Please Input the city, followed by a comma, followed by a two-letter state abbreviation.  i.e. 'City, St' or 'Durham, NC' ");
+    }
+
+    var splitCityStateNA =cityStateNA.split(", ")
+
+    if(stateNameNA.length != 2 ){
+      alert("Please Input the city, followed by a comma, followed by a two-letter state abbreviation.  i.e. 'City, St' or 'Durham, NC' ");
+    }
+  });
+
+  $(".city-input").blur(function splitCity(){
+    var cityStateEA = $(".city-input").val()
+    if(cityStateEA.indexOf(',') != -1){
+      var splitCityStateEA =cityStateEA.split(", ")
+      var cityNameEA = splitCityStateEA[0];
+      var stateNameEA = splitCityStateEA[1];
+    } else{
+        alert("Please Input the city, followed by a comma, followed by a two-letter state abbreviation.  i.e. 'City, St' or 'Durham, NC' ");
+    }
+
+    if(stateNameEA.length != 2 ){
+      alert("Please Input the city, followed by a comma, followed by a two-letter state abbreviation.  i.e. 'City, St' or 'Durham, NC' ");
+    }
+  });
+
+
+  $('.date-input').pickadate();
+  $(".time-input").pickadate();
+
+  $(".date-input-na").pickadate();
+  $(".time-input-na").pickatime();
+
+
+
+
+
   //this section creates appt information from the new appt screen.
   $(".save-appt-btn").on("click", function(){
 
