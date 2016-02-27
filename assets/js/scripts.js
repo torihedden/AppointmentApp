@@ -168,51 +168,58 @@ for (var i = 0; i < storage.length; i++){
     var stateName = splitCityState[1];
 
 
-    // $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
-    //
-    //   switch(json.current_observation.weather) {
-    //     case "Clear":
-    //         $(".weather-block").append(<i class="fa fa-sun-o"></i>);
-    //         break;
-    //     case "Overcast":
-    //     case "Cloudy":
-    //     case "Partly Cloudy":
-    //     case "Mostly Cloudy":
-    //     case "Scattered Clouds":
-    //         $(".weather-block").append(<i class="fa fa-cloud-o"></i>);
-    //         break;
-    //     case "Rain":
-    //     case "Light Rain":
-    //     case "Heavy Rain":
-    //     case "Light Rain Showers":
-    //     case "Heavy Rain Showers":
-    //     case "Rain Showers":
-    //       $(".weather-block").append(<i class="fa fa-umbrella-o"></i>);
-    //       break;
-    //     case "Drizzle":
-    //     case "Light Drizzle":
-    //     case "Heavy Drizzle":
-    //     case "Light Freezing Rain":
-    //     case "Heavy Freezing Rain":
-    //     case "Freezing Rain":
-    //       $(".weather-block").append(<i class="fa fa-tint"></i>);//this looks like a raindrop
-    //       break;
-    //     case "Snow":
-    //     case "Light Snow":
-    //     case "Heavy Snow":
-    //       $(".weather-block").append(<i class="fa fa-asterisk"></i>);
-    //       break;
-    //     case "Thunderstorm":
-    //     case "Light Thunderstorm":
-    //     case "Heavy Thunderstorm":
-    //       $(".weather-block").append(<i class="fa fa-bolt"></i>);
-    //       break;
-    //     default:
-    //         $(".weather-block").append(json.current_observation.weather);//default case is print string
-    //   }
-    // });
+    $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
 
-    //this adds the location map to the detailed view
+      switch(json.current_observation.weather) {
+        case "Clear":
+            $(".weather-block").append('<i class="fa fa-sun-o"></i>');
+            $(".weather-summary").append('<i class="fa fa-sun-o"></i>');
+            break;
+        // case "Overcast":
+        // case "Cloudy":
+        // case "Partly Cloudy":
+        // case "Mostly Cloudy":
+        case "Scattered Clouds":
+            $(".weather-block").append('<i class="fa fa-cloud-o"></i>');
+            $(".weather-summary").append('<i class="fa fa-cloud-o"></i>');
+            break;
+        // case "Rain":
+        // case "Light Rain":
+        // case "Heavy Rain":
+        // case "Light Rain Showers":
+        // case "Heavy Rain Showers":
+        case "Rain Showers":
+          $(".weather-block").append('<i class="fa fa-umbrella-o"></i>');
+          $(".weather-summary").append('<i class="fa fa-umbrella-o"></i>');
+          break;
+        // case "Drizzle":
+        // case "Light Drizzle":
+        // case "Heavy Drizzle":
+        // case "Light Freezing Rain":
+        // case "Heavy Freezing Rain":
+        case "Freezing Rain":
+          $(".weather-block").append('<i class="fa fa-tint"></i>');//this looks like a raindrop
+          $(".weather-summary").append('<i class="fa fa-tint"></i>');
+          break;
+        // case "Snow":
+        // case "Light Snow":
+        case "Heavy Snow":
+          $(".weather-block").append('<i class="fa fa-asterisk"></i>');
+          $(".weather-summary").append('<i class="fa fa-tint"></i>');
+          break;
+        // case "Thunderstorm":
+        // case "Light Thunderstorm":
+        case "Heavy Thunderstorm":
+          $(".weather-block").append('<i class="fa fa-bolt"></i>');
+          $(".weather-summary").append('<i class="fa fa-tint"></i>');
+          break;
+        default:
+            $(".weather-block").append(json.current_observation.weather);//default case is print string
+            $(".weather-summary").append('<i class="fa fa-tint"></i>');
+      }
+    });
+
+    //this adds the location map to the detailed view if location is in city, state format
     $(".maps").append(
       '<img src="https://maps.googleapis.com/maps/api/staticmap?center=' + cityName + ',' + stateName + '&zoom=14&size=400x200&key=AIzaSyB76RrlbvbkCXkPOgP8puUTvHDDFeZsIpA" alt="Appointment location" width="90%"></img>'
     )
