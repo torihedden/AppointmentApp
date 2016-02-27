@@ -100,7 +100,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
  var firstBy=function(){function n(n,t){if("function"!=typeof n){var r=n;n=function(n,t){return n[r]<t[r]?-1:n[r]>t[r]?1:0}}return-1===t?function(t,r){return-n(t,r)}:n}function t(t,u){return t=n(t,u),t.thenBy=r,t}function r(r,u){var f=this;return r=n(r,u),t(function(n,t){return f(n,t)||r(n,t)})}return t}();
 
 
-var sort = firstBy(function(v1, v2){return v2.date < v1.date ? -1 : (v2.date > v1.date ? 1 : 0); }).thenBy(function(v1, v2){return v1.time < v2.time ? -1 : (v1.time > v2.time ? 1 : 0); });
+var sort = firstBy(function(v1, v2){return v1.date < v2.date ? -1 : (v1.date > v2.date ? 1 : 0); }).thenBy(function(v1, v2){return v1.time < v2.time ? -1 : (v1.time > v2.time ? 1 : 0); });
 storage.sort(sort);
 output();
 
