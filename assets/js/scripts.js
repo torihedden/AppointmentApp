@@ -64,11 +64,15 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   });
 
 
-  $('.date-input').pickadate();
-  $(".time-input").pickadate();
+  $('.date-input').pickadate({
+  format: 'yyyy/mm/dd'});
+  $(".time-input").pickatime({
+  format: 'HH:i'});
 
-  $(".date-input-na").pickadate();
-  $(".time-input-na").pickatime();
+  $(".date-input-na").pickadate({
+  format: 'yyyy/mm/dd'});
+  $(".time-input-na").pickatime({
+  format: 'HH:i'});
 
 
 
@@ -91,13 +95,24 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     storage = JSON.parse(localStorage["storage"]);
   }
 
+//this block'o'code sorts objects by date and time
+/*** Copyright 2013 Teun Duynstee Licensed under the Apache License, Version 2.0 ***/
+ var firstBy=function(){function n(n,t){if("function"!=typeof n){var r=n;n=function(n,t){return n[r]<t[r]?-1:n[r]>t[r]?1:0}}return-1===t?function(t,r){return-n(t,r)}:n}function t(t,u){return t=n(t,u),t.thenBy=r,t}function r(r,u){var f=this;return r=n(r,u),t(function(n,t){return f(n,t)||r(n,t)})}return t}();
+
+
+var sort = firstBy(function(v1, v2){return v2.date < v1.date ? -1 : (v2.date > v1.date ? 1 : 0); }).thenBy(function(v1, v2){return v1.time < v2.time ? -1 : (v1.time > v2.time ? 1 : 0); });
+storage.sort(sort);
+output();
+
+console.log(storage);
 
 //this block'o'code populates index.html with appointments
+function output(){
 for (var i = 0; i < storage.length; i++){
   $(".appt-info-block-wrapper").append(
     '<a href="appt-detail.html"><div class="appt-info-wrapper" id='+[i]+'><div class="weather-block"><div class="appt-time">' + storage[i].time + '</div></div><div class="appt-block"><div class="appt-title">' + storage[i].title + '</div><div class="appt-street">' + storage[i].street + '</div><div class="appt-city">' + storage[i].city + '</div><div class="appt-date">' + storage[i].date + '</div></div></div></a>')
   };
-
+};
 
   //this finds which appt was clicked on index.html
   $(".appt-info-wrapper").click(function() {
@@ -146,9 +161,9 @@ for (var i = 0; i < storage.length; i++){
         editArray = [];
     } else {
      editArray = JSON.parse(localStorage.getItem('storage'));
-     localStorage.removeItem('storage');
-     editArray.splice(index, num, data);
 
+     editArray.splice(index, num, data);
+     localStorage.removeItem('storage');
     localStorage.setItem('storage', JSON.stringify(editArray));
   }
 };
