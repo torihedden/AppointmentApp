@@ -256,7 +256,9 @@ for (var i = 0; i < storage.length; i++){
 
 
 } else {
+  $("header").toggle();
+  $("input").toggle();
   console.log("Please use your mobile device!!")
-  $("body").append('<div class = "no-mobile"><img src = "assets/img/sadPhone.png"></img>Please use your mobile device to access this app.<div>')
+  $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.</div><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>')
 }
 });//this closes the entire function
