@@ -54,7 +54,7 @@ for (var i = 0; i < storage.length; i++){
   // });//end of delete func
     //  localStorage.clear()
 
-    // var splitCityState = storage[i].city.split(", ");
+    // var splitCityState = ().split(", ");
     //
     // var cityName = splitCityState[0];
     // var stateName = splitCityState[1];
