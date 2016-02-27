@@ -9,12 +9,7 @@ $(document).ready(function(){
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   // tasks to do if it is a Mobile Device
   console.log("Mobile Detected");
-
-  //this section creates appt information from the new appt screen.
-  $(".save-appt-btn").on("click", function(){
-
-  var apptInfo = {title: $(".title-input-na").val(), street: $(".street-input-na").val(), city: $(".city-input-na").val(), date: $(".date-input-na").val(), time: $(".time-input-na").val()};//grab appt info
-
+  //this function saves arrays of objects to localStorage
   function SaveDataToLocalStorage(data){
     var apptArray;
     //is anything in localstorage?
@@ -29,18 +24,28 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
      // Alert the array value
      console.log(apptArray);  // Should be something like [Object array]
      // Re-serialize the array back into a string and store it in localStorage
+     localStorage.removeItem('storage');
      localStorage.setItem('storage', JSON.stringify(apptArray));
 
     }
 
-    SaveDataToLocalStorage(apptInfo);
+  //this section creates appt information from the new appt screen.
+  $(".save-appt-btn").on("click", function(){
+
+  var apptInfo = {title: $(".title-input-na").val(), street: $(".street-input-na").val(), city: $(".city-input-na").val(), date: $(".date-input-na").val(), time: $(".time-input-na").val()};//grab appt info
+
+  SaveDataToLocalStorage(apptInfo);
 
   });  ////this code made with help from http://stackoverflow.com/questions/19174525/how-to-store-array-in-localstorage-object-in-html5 & http://stackoverflow.com/questions/20936466/cannot-push-objects-in-array-in-localstorage
 
-  var storage = JSON.parse(localStorage["storage"]);//bring array out of localStorage
+//this brings appt info out of local storage
+  var storage;
+  if (localStorage.getItem('storage') === null) {
+    storage = [];
+  } else{
+    storage = JSON.parse(localStorage["storage"]);
+  }
 
-  // console.log(storage[0].title);
-  // localStorage.clear();
 
 //this block'o'code populates index.html with appointemnts
 for (var i = 0; i < storage.length; i++){
@@ -53,7 +58,6 @@ for (var i = 0; i < storage.length; i++){
   $(".appt-info-wrapper").click(function() {
      var clickedIndex = $(this).attr('id');
      localStorage.setItem('clickedIndex', clickedIndex);
-
   });
 
 //this section migrates a clicked appt on index.html to appt-detail.html
@@ -63,6 +67,7 @@ for (var i = 0; i < storage.length; i++){
   $(".date-ad").append("Today at </br>"+ storage[clickedIndex].date);
   $(".time-ad").append(storage[clickedIndex].time);
   $(".location-ad").append("Located at </br>"+ storage[clickedIndex].street + ", "+storage[clickedIndex].city);
+
 //this section migrates a clicked appt on index.html to edit-appt.html
   $(".street-input").val($(".street-input").val()+storage[clickedIndex].street);
   $(".city-input").val($(".city-input").val()+storage[clickedIndex].city);
@@ -71,21 +76,46 @@ for (var i = 0; i < storage.length; i++){
   $(".title-input").val($(".title-input").val()+storage[clickedIndex].title);
 
 
-
-
   // this section deletes appt objects from the appt array
-  // $(".delete-appt-btn").on("click", function(){
-  //   storage[clickedIndex].remove();
+  function DeleteDatatFromLocalStorage(index, num){
+    var deleteArray;
+    if (localStorage.getItem('storage') === null) {
+        deleteArray = [];
+    } else {
+    deleteArray = JSON.parse(localStorage.getItem('storage'));
+    deleteArray.splice(index, num);
+    localStorage.removeItem('storage');
+    localStorage.setItem('storage', JSON.stringify(deleteArray));
+  }
+};
 
+  $(".delete-appt-btn").on("click", function(){
+  DeleteDatatFromLocalStorage(clickedIndex, 1);
+  });//end of delete func
 
-  // });//end of delete func
 
   //this section updates values edited on edit-appt.html
-  // $(".save-appt-btn").on("click", function(){
-  //   storage[clickedIndex] = {title: $(".title-input").val(), street: $(".street-input").val(), city: $(".city-input").val(), date: $(".date-input").val(), time: $(".time-input").val()};
-  // })
+  function EditArrayInLocalStorage(index, num, data){
+    var editArray;
+    if (localStorage.getItem('storage') === null) {
+        editArray = [];
+    } else {
+     editArray = JSON.parse(localStorage.getItem('storage'));
+     localStorage.removeItem('storage');
+     editArray.splice(index, num, data);
 
-  console.log(storage);
+    localStorage.setItem('storage', JSON.stringify(editArray));
+  }
+};
+//this saves edited data and moves back to the appt info screen on click
+  $(".save-appt-btn-e").on("click", function(){
+    var edited = {title: $(".title-input").val(), street: $(".street-input").val(), city: $(".city-input").val(), date: $(".date-input").val(), time: $(".time-input").val()};
+
+    EditArrayInLocalStorage(clickedIndex, 1, edited);
+  });
+  // console.log(storage);
+
+
 
 
     // var splitCityState = storage[i].city.split(", ");
@@ -115,7 +145,7 @@ for (var i = 0; i < storage.length; i++){
       }
     });
 
-
+      // localStorage.clear();
 
 }
 });//this closes the entire function
