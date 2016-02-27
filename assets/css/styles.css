@@ -93,8 +93,8 @@ header {
 }
 
 .maps {
-  border: solid 1px gray;
-  height: 150px;
+  /*border: solid 1px gray;
+  height: 150px;*/
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
