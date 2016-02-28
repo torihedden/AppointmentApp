@@ -27,7 +27,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
      localStorage.removeItem('storage');
      localStorage.setItem('storage', JSON.stringify(apptArray));
 
-    }
+    }////this code made with help from http://stackoverflow.com/questions/19174525/how-to-store-array-in-localstorage-object-in-html5 & http://stackoverflow.com/questions/20936466/cannot-push-objects-in-array-in-localstorage
 
   //this section sanitizes user input for city, state, date, and time.
 
@@ -85,7 +85,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
   SaveDataToLocalStorage(apptInfo);
 
-  });  ////this code made with help from http://stackoverflow.com/questions/19174525/how-to-store-array-in-localstorage-object-in-html5 & http://stackoverflow.com/questions/20936466/cannot-push-objects-in-array-in-localstorage
+  });
 
 //this brings appt info out of local storage and sorts objects by date and time and then gets rid of anny appts over a day old and appends the remaining appts and then puts the sorted array back in local storage
   var storage;
