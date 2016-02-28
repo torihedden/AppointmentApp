@@ -22,27 +22,25 @@ header {
   width: 96%;
   margin-left: 2%;
   margin-right: 2%;
-  font-size: 4em;
+  font-size: 7em;
   color: #47dbba;
   border-bottom: solid 2px #d8d8d8;
-  text-align: center;
-  padding: 15px 0;
+  /*text-align: center;*/
+  padding: 15px 0 5px 5%;
   position: fixed;
   top: 0;
   background-color: white;
 }
 
 .appt-info-block-wrapper {
-  margin-top: 25px;
-}
-
-.appt-title {
-  color: black;
-  font-size: 1.3em;
+  margin-top: 13%;
 }
 
 .add-appt {
   color: #7a7a7a;
+  float: right;
+  font-size: 2em;
+  margin: -6% 2% 0 0;
 }
 
 a {
@@ -61,10 +59,11 @@ a {
   background-color: transparent;
 }
 
-.appt-info-wrapper{
+/*.appt-info-wrapper{
   height: 12%;
-  margin-top: 40px;
-}
+  margin: 40px;
+  border: solid thin black;
+}*/
 
 .appt-block {
   font-family: "Lato", sans-serif;
@@ -72,21 +71,11 @@ a {
   /*height: 75px;*/
   padding: 10px;
   width: 70%;
-  margin-right: 5%;
-  margin-top: 18px;
+  margin: 1% 0 5% 1%;
+  /*margin-top: 18px;*/
   float: left;
   font-size: 2em;
-  border: solid 2px red;
-}
-
-a:visited {
-  color: #828282;
-}
-
-.appt-time {
-  margin: 10px 0;
-  font-size: 1.5em;
-  margin-bottom: 15px;
+  /*border: solid 2px red;*/
 }
 
 .weather-block {
@@ -97,11 +86,44 @@ a:visited {
   height: 100%;
   width: 20%;
   margin-left: 5%;
-  margin-top: 50px;
   float: left;
-  font-size: 2em;
-  padding: 10px;
+  font-size: 3em;
+  padding: 13.5% 10px;
 }
+
+a:visited {
+  color: #828282;
+}
+
+.appt-title {
+  margin: 0 0 1% 0;
+  color: black;
+  font-size: 3em;
+}
+
+.appt-time {
+  margin: 10px 0;
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+.appt-street{
+  margin: 1% 0;
+  font-size: 2em;
+}
+
+.appt-city{
+  margin: 1% 0;
+  font-size: 2em;
+}
+
+.appt-date{
+  margin: 1% 0;
+  font-size: 2.3em;
+  color: darkslategrey;
+}
+
+
 
 .date-and-time {
   width: 90%;
@@ -110,6 +132,7 @@ a:visited {
   margin-top: 35px;
   margin-bottom: 25px;
   padding: 15px;
+  /*font-size: 2.5em;*/
 }
 
 .location {
@@ -164,8 +187,8 @@ new appt page styling
 width: 98%;
 margin: 0 0 0 1%;
 border-bottom: solid .2em  #f5f5f5;
-/*position: absolute;
-top: 0;*/
+position: absolute;
+top: 0;
 
 }
 
@@ -173,8 +196,8 @@ top: 0;*/
   display: inline-block;
   text-decoration: none;
   color:#494949;
-  font-size: 4em;
-  margin: 0 4% 0 6%;
+  font-size: 10em;
+  margin: -2% 4% 0 3%;
   font-family: "lato", sans-serif;
   /*vertical-align: center;*/
 }
@@ -184,14 +207,18 @@ top: 0;*/
   top: 2.5%;
   display: inline-block;
   color:#494949;
-  font-size: 2em;
+  font-size: 6em;
   text-align: top;
-  margin: 0 0 2%  2%;
+  margin: -2.5% 2% 2%  2%;
   vertical-align: center;
   font-family: "lato", sans-serif;
 }
 
 /******* input fields *******/
+
+/*.title{
+  margin: 20% 0 0 0;
+}*/
 
 input{
   width: 96%;
@@ -199,24 +226,28 @@ input{
   margin-left: 2%;
   line-height: 1.2em;
   margin-top: .5%;
-  font-size: 1.5em;
+  font-size: 4.5em;
   font-family: "lato", sans-serif;
+  border: solid thin #7a7a7a;
 }
 
 [class*="-text"]{
   margin-left: 3%;
   font-family: "lato", sans-serif;
   color: #7a7a7a;;
-  font-size: 1.5em;
+  font-size: 4em;
   padding: 0 0 2% 0;
 }
 
 .form{
   display: block;
   width: 98%;
-  border-bottom: solid .2em  #f5f5f5;
+  border-bottom: solid 2px  #f5f5f5;
   margin: 4% 0 4% 1%;
   padding: 2% 0 6% 0;
+}
+.title{
+  margin: 20% 0 0 0;
 }
 
 .city-text{
@@ -236,29 +267,20 @@ input{
   background-color: #47dbba;
   text-align: center;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 6em;
   font-family: "lato", sans-serif;
-  padding: 0 22.9%;
+  padding: 5% 9.2% 5% 9.5%;
   /*width: 50%;*/
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
+  margin: 0 0 0  0;
 }
 
-.delete-appt-btn{
-  text-decoration: none;
+.save-appt-btn:visited{
   color: white;
-  background-color: #ff0000;
-  text-align: center;
-  font-weight: bold;
-  font-size: 2em;
-  font-family: "lato", sans-serif;
-  padding: 5% 15%;
-  width: 50%;
-  box-sizing: border-box;
-  /*position: absolute;*/
-  /*bottom: 0;*/
 }
+
 
 /************************************************************
 appt-detail.html page styling
@@ -290,13 +312,37 @@ i {
   background-color: #47dbba;
   text-align: center;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 6em;
   font-family: "lato", sans-serif;
-  padding: 5% 15%;
-  /*width: 50%;*/
+  padding: 5% 5%;
+  width: 50%;
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
+}
+
+.delete-appt-btn{
+  text-decoration: none;
+  color: white;
+  background-color: #ff0000;
+  text-align: center;
+  font-weight: bold;
+  font-size: 6em;
+  font-family: "lato", sans-serif;
+  padding: 5% 5%;
+  margin-left: 50%;
+  width: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+}
+
+.save-appt-btn-e:visited{
+  color: white;
+}
+
+.delete-appt-btn:visited{
+  color: white;
 }
 
 .title-txt {
