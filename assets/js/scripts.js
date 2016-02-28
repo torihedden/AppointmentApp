@@ -151,29 +151,46 @@ for (var i = 0; i < storage.length; i++){
           $(".weather-summary").append(json.current_observation.weather);
           break;
       case "Scattered Clouds":
+      case "Overcast":
+      case "Mostly Cloudy":
           $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/cloudy.gif"></img>');
           $(".weather-summary").append(json.current_observation.weather);
           break;
       case "Rain":
+      case "Light Rain":
+      case "Heavy Rain":
+      case "Drizzle":
+      case "Light Drizzle":
+      case "Heavy Drizzle":
         $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/rain.gif"></img>');
         $(".weather-summary").append(json.current_observation.weather);
         break;
+      case "Sleet":
       case "Freezing Rain":
         $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/sleet.gif"></img>');
         $(".weather-summary").append(json.current_observation.weather);
         break;
       case "Snow":
+      case "Light Snow":
+      case "Heavy Snow":
         $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/snow.gif"></img>');
         $(".weather-summary").append(json.current_observation.weather);
         break;
       case "Thunderstorm":
+      case "Light Thunderstorm":
+      case "Heavy Thunderstorm":
         $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/tstorms.gif"></img>');
         $(".weather-summary").append(json.current_observation.weather);
         break;
+      case "Fog":
+        $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/fog.gif"></img>');
+        $(".weather-summary").append(json.current_observation.weather);
       default:
           $(".weather-summary").append(json.current_observation.weather);//default case is just print string
 
     }
+
+    $(".weather-summary").append(", " + json.current_observation.temp_f + "&deg;F");
   });
 
 //this section migrates a clicked appt on index.html to edit-appt.html
@@ -232,7 +249,7 @@ for (var i = 0; i < storage.length; i++){
 
     //this adds the location map to the detailed view if location is in city, state format
     $(".maps").append(
-      '<img src="https://maps.googleapis.com/maps/api/staticmap?center=' + cityName + ',' + stateName + '&zoom=14&size=400x200&key=AIzaSyB76RrlbvbkCXkPOgP8puUTvHDDFeZsIpA" alt="Appointment location" width="90%"></img>'
+      '<img src="https://maps.googleapis.com/maps/api/staticmap?center=' + cityName + ',' + stateName + '&zoom=14&size=420x240&key=AIzaSyB76RrlbvbkCXkPOgP8puUTvHDDFeZsIpA" alt="Appointment location" width="90%"></img>'
 
     )
 
