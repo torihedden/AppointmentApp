@@ -220,7 +220,7 @@ for (var i = 0; i < storage.length; i++){
 
 
     $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
-
+      console.log(json)
       switch(json.current_observation.weather) {
         case "Clear":
             $(".weather-block").append('<i class="fa fa-sun-o"></i>');
@@ -271,8 +271,17 @@ for (var i = 0; i < storage.length; i++){
 
 
 } else {
-  $("header").toggle();
-  $("input").toggle();
+  $(".new-appt-header").hide();
+  $(".edit-appt-header").hide();
+  $(".title").hide();
+  $(".location-info").hide();
+  $(".date").hide();
+  $(".time").hide();
+  $("header").hide();
+  $("input").hide();
+  $("button").hide();
+  $("a").hide();
+  $("span").hide();
   console.log("Please use your mobile device!!")
   $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.</div><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>')
 }
