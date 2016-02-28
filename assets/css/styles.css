@@ -313,6 +313,17 @@ appt-detail.html page styling
   text-align: center;
 }
 
+.weather-icon {
+  display: inline;
+  width: 100px;
+  height: 100px;
+}
+
+.detail-summary {
+  display: inline;
+  box-sizing: border-box;
+}
+
 .edit-appt-button {
   position: fixed;
   bottom: 0;
