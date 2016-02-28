@@ -145,7 +145,7 @@ a:visited {
 
 .maps {
   width: 90%;
-  margin: 15% 5% 5% 5%;
+  margin: 15% 5% 5% 10%;
   box-sizing: border-box;
 }
 
@@ -316,6 +316,7 @@ appt-detail.html page styling
 .edit-appt-button {
   position: fixed;
   bottom: 0;
+  font-size: 4em;
 }
 
 .save-appt-btn-e{
@@ -358,7 +359,7 @@ appt-detail.html page styling
 }
 
 .title-txt {
-  font-size: 4em;
+  font-size: 5em;
 
 }
 
