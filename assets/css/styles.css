@@ -22,19 +22,32 @@ header {
   width: 96%;
   margin-left: 2%;
   margin-right: 2%;
-  font-size: 3em;
+  font-size: 4em;
   color: #47dbba;
   border-bottom: solid 2px #d8d8d8;
   text-align: center;
   padding: 15px 0;
+  position: fixed;
+  top: 0;
+  background-color: white;
+}
+
+.appt-info-block-wrapper {
+  margin-top: 25px;
 }
 
 .appt-title {
-  color: #797979;
+  color: black;
+  font-size: 1.3em;
 }
 
 .add-appt {
   color: #7a7a7a;
+}
+
+a {
+  text-decoration: none;
+
 }
 
 .search-bar {
@@ -48,26 +61,38 @@ header {
   background-color: transparent;
 }
 
-.fa-search {
-  color: #9f9f9f;
-  float: right;
-}
-
 .appt-info-wrapper{
   height: 12%;
+  margin-top: 40px;
 }
 
 .appt-block {
+  font-family: "Lato", sans-serif;
   background-color: #f5f5f5;
   /*height: 75px;*/
+  padding: 10px;
   width: 70%;
   margin-right: 5%;
   margin-top: 18px;
   float: left;
   font-size: 2em;
+  border: solid 2px red;
+}
+
+a:visited {
+  color: #828282;
+}
+
+.appt-time {
+  margin: 10px 0;
+  font-size: 1.5em;
+  margin-bottom: 15px;
 }
 
 .weather-block {
+  font-family: "Lato", sans-serif;
+  color: white;
+  text-align: center;
   background-color: #47dbba;
   height: 100%;
   width: 20%;
@@ -75,6 +100,7 @@ header {
   margin-top: 50px;
   float: left;
   font-size: 2em;
+  padding: 10px;
 }
 
 .date-and-time {
@@ -83,6 +109,7 @@ header {
   margin-right: 5%;
   margin-top: 35px;
   margin-bottom: 25px;
+  padding: 15px;
 }
 
 .location {
@@ -93,20 +120,19 @@ header {
 }
 
 .maps {
-  /*border: solid 1px gray;
-  height: 150px;*/
   width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 25% 5% 5% 5%;
   box-sizing: border-box;
 }
 
 .weather-summary {
   background-color: #e6e6e6;
+  color: black;
+  font-size: 2em;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  /*padding: 15px;*/
+  padding: 15px;
   box-sizing: border-box;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -239,17 +265,19 @@ appt-detail.html page styling
 ************************************************************/
 
 .date-ad{
-  font-size: 2em;
+  font-size: 3em;
   /*float: right;*/
 }
 
 .time-ad{
-  font-size: 2em;
+  font-size: 3em;
   /*float: right;*/
 }
 
 .location-ad{
   font-size: 2em;
+  width: 90%;
+  margin: 5px;
 }
 
 i {
@@ -269,6 +297,11 @@ i {
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
+}
+
+.title-txt {
+  font-size: 4em;
+
 }
 
 /************************************************************
