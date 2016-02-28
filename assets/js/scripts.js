@@ -93,7 +93,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     storage = [];
   } else{
     storage = JSON.parse(localStorage.getItem('storage'));
-    
+
     /*** Copyright 2013 Teun Duynstee Licensed under the Apache License, Version 2.0 ***/
     var firstBy=function(){function n(n,t){if("function"!=typeof n){var r=n;n=function(n,t){return n[r]<t[r]?-1:n[r]>t[r]?1:0}}return-1===t?function(t,r){return-n(t,r)}:n}function t(t,u){return t=n(t,u),t.thenBy=r,t}function r(r,u){var f=this;return r=n(r,u),t(function(n,t){return f(n,t)||r(n,t)})}return t}();
 
@@ -224,7 +224,7 @@ for (var i = 0; i < storage.length; i++){
 
 
     $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
-
+      console.log(json)
       switch(json.current_observation.weather) {
         case "Clear":
             $(".weather-block").append('<i class="fa fa-sun-o"></i>');
@@ -271,10 +271,27 @@ for (var i = 0; i < storage.length; i++){
     //this adds the location map to the detailed view if location is in city, state format
     $(".maps").append(
       '<img src="https://maps.googleapis.com/maps/api/staticmap?center=' + cityName + ',' + stateName + '&zoom=14&size=400x200&key=AIzaSyB76RrlbvbkCXkPOgP8puUTvHDDFeZsIpA" alt="Appointment location" width="90%"></img>'
-    )}
-}  else {
-$("header").toggle();
-$("input").toggle();
-console.log("Please use your mobile device!!")
-$("body").append('<div class = "no-mobile">Please use your mobile device to access this app.</div><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>')}
-});//this closes the entire function
+
+    )
+
+
+}}
+else {
+  $(".new-appt-header").hide();
+  $(".edit-appt-header").hide();
+  $(".title").hide();
+  $(".location-info").hide();
+  $(".date").hide();
+  $(".time").hide();
+  $("header").hide();
+  $("input").hide();
+  $("button").hide();
+  $("a").hide();
+  $("span").hide();
+  console.log("Please use your mobile device!!")
+  $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.</div><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>')
+
+    }
+});
+
+//this closes the entire function
