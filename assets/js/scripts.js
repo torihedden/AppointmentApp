@@ -129,7 +129,7 @@ for (var i = 0; i < storage.length; i++){
   var clickedIndex = localStorage.getItem('clickedIndex');
   console.log(clickedIndex);
   $(".title-txt").append(storage[clickedIndex].title);
-  $(".date-ad").append("Today at </br>"+ storage[clickedIndex].date);
+  $(".date-ad").append(storage[clickedIndex].date);
   $(".time-ad").append(storage[clickedIndex].time);
   $(".location-ad").append("Located at </br>"+ storage[clickedIndex].street + ", "+storage[clickedIndex].city);
 

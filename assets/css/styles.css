@@ -167,7 +167,7 @@ button {
   color: white;
   width: 100%;
   padding: 15px 0;
-  font-size: 2em;
+  font-size: 3em;
 }
 
 
@@ -287,16 +287,18 @@ appt-detail.html page styling
 ************************************************************/
 
 .date-ad{
-  font-size: 3em;
+  font-size: 5em;
+  color: black;
   font-family: "Lato", sans-serif;
 }
 
 .time-ad{
-  font-size: 3em;
+  font-size: 4em;
+  font-family: "Lato", sans-serif;
 }
 
 .location-ad{
-  font-size: 3em;
+  font-size: 4em;
   width: 90%;
   margin-left: 5%;
   padding-left: 5%;
@@ -309,6 +311,11 @@ appt-detail.html page styling
   color: #797979;
   font-family: "Lato", sans-serif;
   text-align: center;
+}
+
+.edit-appt-button {
+  position: fixed;
+  bottom: 0;
 }
 
 .save-appt-btn-e{
