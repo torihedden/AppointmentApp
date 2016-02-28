@@ -290,7 +290,7 @@ for (var i = 0; i < storage.length; i++){
     )
 
 
-} else {
+} else (
   $(".new-appt-header").hide();
   $(".edit-appt-header").hide();
   $(".title").hide();
