@@ -65,12 +65,12 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
   $('.date-input').pickadate({
-  format: 'yyyy/mm/dd'});
+  format: 'mm/dd/yyyy'});
   $(".time-input").pickatime({
   format: 'HH:i'});
 
   $(".date-input-na").pickadate({
-  format: 'yyyy/mm/dd'});
+  format: 'mm/dd/yyyy'});
   $(".time-input-na").pickatime({
   format: 'HH:i'});
 
@@ -87,31 +87,50 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
   });  ////this code made with help from http://stackoverflow.com/questions/19174525/how-to-store-array-in-localstorage-object-in-html5 & http://stackoverflow.com/questions/20936466/cannot-push-objects-in-array-in-localstorage
 
-//this brings appt info out of local storage
+//this brings appt info out of local storage and sorts objects by date and time and then appends them and then puts the sorted array back in local storage
   var storage;
   if (localStorage.getItem('storage') === null) {
     storage = [];
   } else{
-    storage = JSON.parse(localStorage["storage"]);
+    storage = JSON.parse(localStorage.getItem('storage'));
+    /*** Copyright 2013 Teun Duynstee Licensed under the Apache License, Version 2.0 ***/
+    var firstBy=function(){function n(n,t){if("function"!=typeof n){var r=n;n=function(n,t){return n[r]<t[r]?-1:n[r]>t[r]?1:0}}return-1===t?function(t,r){return-n(t,r)}:n}function t(t,u){return t=n(t,u),t.thenBy=r,t}function r(r,u){var f=this;return r=n(r,u),t(function(n,t){return f(n,t)||r(n,t)})}return t}();
+
+
+   var sort = firstBy(function(v1, v2){return v1.date < v2.date ? -1 : (v1.date > v2.date ? 1 : 0); }).thenBy(function(v1, v2){return v1.time < v2.time ? -1 : (v1.time > v2.time ? 1 : 0); });
+   storage.sort(sort);
+   localStorage.setItem('storage', JSON.stringify(storage));
+   output();
   }
 
-//this block'o'code sorts objects by date and time
-/*** Copyright 2013 Teun Duynstee Licensed under the Apache License, Version 2.0 ***/
- var firstBy=function(){function n(n,t){if("function"!=typeof n){var r=n;n=function(n,t){return n[r]<t[r]?-1:n[r]>t[r]?1:0}}return-1===t?function(t,r){return-n(t,r)}:n}function t(t,u){return t=n(t,u),t.thenBy=r,t}function r(r,u){var f=this;return r=n(r,u),t(function(n,t){return f(n,t)||r(n,t)})}return t}();
 
 
-var sort = firstBy(function(v1, v2){return v1.date < v2.date ? -1 : (v1.date > v2.date ? 1 : 0); }).thenBy(function(v1, v2){return v1.time < v2.time ? -1 : (v1.time > v2.time ? 1 : 0); });
-storage.sort(sort);
-output();
 
-console.log(storage);
 
-//this block'o'code populates index.html with appointments
+console.log(oneWeekAgo);
+
+
+// .toLocaleDateString('en-US')
+// console.log(todaysDate);
+
+var currentTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute:'2-digit'});
+
+
+
+
+
+//this block'o'code populates index.html with appointments, after deleting any appts older than 7 days,
 function output(){
 for (var i = 0; i < storage.length; i++){
+
+  var oneWeekAgo = moment().subtract(7,'d').format('MM/DD/YYYY');
+  var hourAgo = moment().subtract(1,'hour').format('h:mm');
+
+
   $(".appt-info-block-wrapper").append(
     '<a href="appt-detail.html"><div class="appt-info-wrapper" id='+[i]+'><div class="weather-block"><div class="appt-time">' + storage[i].time + '</div></div><div class="appt-block"><div class="appt-title">' + storage[i].title + '</div><div class="appt-street">' + storage[i].street + '</div><div class="appt-city">' + storage[i].city + '</div><div class="appt-date">' + storage[i].date + '</div></div></div></a>')
-  };
+
+
 };
 
   //this finds which appt was clicked on index.html
@@ -267,6 +286,7 @@ for (var i = 0; i < storage.length; i++){
     //this adds the location map to the detailed view if location is in city, state format
     $(".maps").append(
       '<img src="https://maps.googleapis.com/maps/api/staticmap?center=' + cityName + ',' + stateName + '&zoom=14&size=400x200&key=AIzaSyB76RrlbvbkCXkPOgP8puUTvHDDFeZsIpA" alt="Appointment location" width="90%"></img>'
+
     )
 
 
@@ -284,5 +304,13 @@ for (var i = 0; i < storage.length; i++){
   $("span").hide();
   console.log("Please use your mobile device!!")
   $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.</div><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>')
+
+    )}
+  //    else {
+  // $("header").toggle();
+  // $("input").toggle();
+  // console.log("Please use your mobile device!!")
+  // $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.</div><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>')
+
 }
 });//this closes the entire function
