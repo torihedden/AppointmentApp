@@ -116,6 +116,7 @@ function output(){
 for (var i = 0; i < storage.length; i++){
   $(".appt-info-block-wrapper").append(
     '<a href="appt-detail.html"><div class="appt-info-wrapper" id='+[i]+'><div class="weather-block"><div class="appt-time">' + storage[i].time + '</div></div><div class="appt-block"><div class="appt-title">' + storage[i].title + '</div><div class="appt-street">' + storage[i].street + '</div><div class="appt-city">' + storage[i].city + '</div><div class="appt-date">' + storage[i].date + '</div></div></div></a>')
+
 };
 
   //this finds which appt was clicked on index.html
