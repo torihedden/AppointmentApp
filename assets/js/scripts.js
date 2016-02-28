@@ -132,6 +132,7 @@ for (var i = 0; i < storage.length; i++){
   $(".time-ad").append(storage[clickedIndex].time);
   $(".location-ad").append("Located at </br>"+ storage[clickedIndex].street + ", "+storage[clickedIndex].city);
 
+//this adds a weather summary to the deatiled appointment view
   var splitCity = (storage[clickedIndex].city).split(", ");
   console.log(splitCity);
 
@@ -145,25 +146,31 @@ for (var i = 0; i < storage.length; i++){
 
     switch(json.current_observation.weather) {
       case "Clear":
-          $(".weather-summary").append('<i class="fa fa-sun-o"></i>');
+          $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/clear.gif"></img>');
+          $(".weather-summary").append(json.current_observation.weather);
           break;
       case "Scattered Clouds":
-          $(".weather-summary").append('<i class="fa fa-cloud-o"></i>');
+          $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/cloudy.gif"></img>');
+          $(".weather-summary").append(json.current_observation.weather);
           break;
-      case "Rain Showers":
-        $(".weather-summary").append('<i class="fa fa-umbrella-o"></i>');
+      case "Rain":
+        $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/rain.gif"></img>');
+        $(".weather-summary").append(json.current_observation.weather);
         break;
       case "Freezing Rain":
-        $(".weather-summary").append('<i class="fa fa-tint"></i>');//this looks like a raindrop
+        $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/sleet.gif"></img>');
+        $(".weather-summary").append(json.current_observation.weather);
         break;
-      case "Heavy Snow":
-        $(".weather-summary").append('<i class="fa fa-asterisk"></i>');
+      case "Snow":
+        $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/snow.gif"></img>');
+        $(".weather-summary").append(json.current_observation.weather);
         break;
-      case "Heavy Thunderstorm":
-        $(".weather-summary").append('<i class="fa fa-bolt"></i>');
+      case "Thunderstorm":
+        $(".weather-summary").append('<img src="http://icons.wxug.com/i/c/k/tstorms.gif"></img>');
+        $(".weather-summary").append(json.current_observation.weather);
         break;
       default:
-          $(".weather-summary").append(json.current_observation.weather);//default case is print string
+          $(".weather-summary").append(json.current_observation.weather);//default case is just print string
 
     }
   });
@@ -216,57 +223,11 @@ for (var i = 0; i < storage.length; i++){
   // console.log(storage);
 
 
-
+//this splits the location name into a format useable by the Google maps API
     var splitCityState = (storage[clickedIndex].city).split(", ");
 
     var cityName = splitCityState[0];
     var stateName = splitCityState[1];
-
-
-    $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + stateName + "/" + cityName + ".json", function(json) {
-      console.log(json)
-      switch(json.current_observation.weather) {
-        case "Clear":
-            $(".weather-block").append('<i class="fa fa-sun-o"></i>');
-            break;
-        // case "Overcast":
-        // case "Cloudy":
-        // case "Partly Cloudy":
-        // case "Mostly Cloudy":
-        case "Scattered Clouds":
-            $(".weather-block").append('<i class="fa fa-cloud-o"></i>');
-            break;
-        // case "Rain":
-        // case "Light Rain":
-        // case "Heavy Rain":
-        // case "Light Rain Showers":
-        // case "Heavy Rain Showers":
-        case "Rain Showers":
-          $(".weather-block").append('<i class="fa fa-umbrella-o"></i>');
-          break;
-        // case "Drizzle":
-        // case "Light Drizzle":
-        // case "Heavy Drizzle":
-        // case "Light Freezing Rain":
-        // case "Heavy Freezing Rain":
-        case "Freezing Rain":
-          $(".weather-block").append('<i class="fa fa-tint"></i>');//this looks like a raindrop
-          break;
-        // case "Snow":
-        // case "Light Snow":
-        case "Heavy Snow":
-          $(".weather-block").append('<i class="fa fa-asterisk"></i>');
-          break;
-        // case "Thunderstorm":
-        // case "Light Thunderstorm":
-        case "Heavy Thunderstorm":
-          $(".weather-block").append('<i class="fa fa-bolt"></i>');
-          break;
-        default:
-            $(".weather-block").append(json.current_observation.weather);//default case is print string
-
-      }
-    });
 
     //this adds the location map to the detailed view if location is in city, state format
     $(".maps").append(
@@ -274,16 +235,15 @@ for (var i = 0; i < storage.length; i++){
 
     )
 
-
-
 }}
 else {
-
+  $(".weather-summary").hide();
   $(".new-appt-header").hide();
   $(".edit-appt-header").hide();
   $(".title").hide();
   $(".location-info").hide();
   $(".date").hide();
+  $(".date-and-time").hide();
   $(".time").hide();
   $("header").hide();
   $("input").hide();

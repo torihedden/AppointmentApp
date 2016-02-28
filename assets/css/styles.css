@@ -27,6 +27,13 @@ header {
   border-bottom: solid 2px #d8d8d8;
   text-align: center;
   padding: 15px 0;
+  position: fixed;
+  top: 0;
+  background-color: white;
+}
+
+.appt-info-block-wrapper {
+  margin-top: 25px;
 }
 
 .appt-title {
@@ -56,6 +63,7 @@ a {
 
 .appt-info-wrapper{
   height: 12%;
+  margin-top: 40px;
 }
 
 .appt-block {
@@ -119,10 +127,12 @@ a:visited {
 
 .weather-summary {
   background-color: #e6e6e6;
+  color: black;
+  font-size: 2em;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  /*padding: 15px;*/
+  padding: 15px;
   box-sizing: border-box;
   margin-top: 25px;
   margin-bottom: 25px;
