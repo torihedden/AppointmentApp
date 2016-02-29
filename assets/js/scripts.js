@@ -181,7 +181,7 @@ for (var i = 0; i < storage.length; i++){
       case "Heavy Snow":
       case "Snow Grains":
       case "Light Snow Grains":
-      case "Heavy Snow Grains"
+      case "Heavy Snow Grains":
         $(".weather-icon").append('<img src="http://icons.wxug.com/i/c/k/snow.gif" width=100px></img>');
         $(".detail-summary").append(" " + json.current_observation.weather);
         break;
