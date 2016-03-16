@@ -40,21 +40,21 @@ $(document).ready(function(){
 
     // create the controller and inject Angular's $scope
     apptApp.controller('mainController', function($scope) {
-        // create a message to display in our view
-        $scope.message = 'This is the main page!';
+
     });
 
     apptApp.controller('newController', function($scope) {
-        $scope.message = 'Make a new appt here';
+
     });
 
     apptApp.controller('editController', function($scope) {
-        $scope.message = 'Edit appt here';
+
     });
 
     apptApp.controller('detailsController', function($scope) {
-        $scope.message = 'View appt details';
+
     });
+
 
 //code from http://jstricks.com/detect-mobile-devices-javascript-jquery/ --all code should be within this function
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
