@@ -5,57 +5,6 @@ $(document).ready(function(){
   var apptInfo;
   var currentApptIndex;
 
-  // create the module and name it apptApp
-        // also include ngRoute for all our routing needs
-    var apptApp = angular.module('apptApp', ['ngRoute']);
-
-    // configure our routes
-    apptApp.config(function($routeProvider) {
-        $routeProvider
-
-            // route for the home page
-            .when('/', {
-                templateUrl : 'pages/index.html',
-                controller  : 'mainController'
-            })
-
-            // route for the new appointment page
-            .when('/new', {
-                templateUrl : 'pages/new-appt.html',
-                controller  : 'newController'
-            })
-
-            // route for the edit appointment page
-            .when('/edit', {
-                templateUrl : 'pages/edit-appt.html',
-                controller  : 'editController'
-            })
-
-            // route for the appointment detail page
-            .when('/details', {
-                templateUrl : 'pages/appt-detail.html',
-                controller  : 'detailsController'
-            });
-    });
-
-    // create the controller and inject Angular's $scope
-    apptApp.controller('mainController', function($scope) {
-
-    });
-
-    apptApp.controller('newController', function($scope) {
-
-    });
-
-    apptApp.controller('editController', function($scope) {
-
-    });
-
-    apptApp.controller('detailsController', function($scope) {
-
-    });
-
-
 //code from http://jstricks.com/detect-mobile-devices-javascript-jquery/ --all code should be within this function
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   // tasks to do if it is a Mobile Device
@@ -336,7 +285,7 @@ else {
   console.log("Please use your mobile device!!")
   $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.</div><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>')
 
-    }
+};
 });
 
 //this closes the entire function
