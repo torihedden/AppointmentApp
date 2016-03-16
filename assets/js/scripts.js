@@ -127,7 +127,7 @@ for (var i = 0; i < storage.length; i++){
 
 //this section migrates a clicked appt on index.html to appt-detail.html
   var clickedIndex = localStorage.getItem('clickedIndex');
-  console.log(clickedIndex);
+  // console.log(clickedIndex);
   $(".title-txt").append(storage[clickedIndex].title);
   $(".date-ad").append(storage[clickedIndex].date);
   $(".time-ad").append(storage[clickedIndex].time);
@@ -135,15 +135,15 @@ for (var i = 0; i < storage.length; i++){
 
 //this adds a weather summary to the deatiled appointment view
   var splitCity = (storage[clickedIndex].city).split(", ");
-  console.log(splitCity);
+  // console.log(splitCity);
 
   var detailCity = splitCity[0]
   var detailState = splitCity[1]
 
   $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + detailState + "/" + detailCity + ".json", function(json) {
 
-    console.log(detailCity);
-    console.log(detailState);
+    // console.log(detailCity);
+    // console.log(detailState);
 
     switch(json.current_observation.weather) {
       case "Clear":

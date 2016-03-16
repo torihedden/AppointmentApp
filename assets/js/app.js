@@ -12,20 +12,20 @@ xhr.onreadystatechange = function(){
      appAppt.config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl : 'pages/index.html',
-                controller  : 'mainController'
+                templateUrl : 'index.html',
+                // controller  : 'mainController'
             })
             .when('/new', {
-                templateUrl : 'pages/new-appt.html',
-                controller  : 'newController'
+                templateUrl : 'new-appt.html',
+                // controller  : 'newController'
             })
             .when('/edit', {
-                templateUrl : 'pages/edit-appt.html',
-                controller  : 'editController'
+                templateUrl : 'edit-appt.html',
+                // controller  : 'editController'
             })
             .when('/details', {
-                templateUrl : 'pages/appt-detail.html',
-                controller  : 'detailsController'
+                templateUrl : 'appt-detail.html',
+                // controller  : 'detailsController'
             })
     });
 
