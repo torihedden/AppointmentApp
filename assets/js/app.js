@@ -1,7 +1,7 @@
-;(function(){
-
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function(){
+// ;(function(){
+//
+// var xhr = new XMLHttpRequest();
+// xhr.onreadystatechange = function(){
 
   // create the module and name it apptApp
         // also include ngRoute for all our routing needs
@@ -12,41 +12,41 @@ xhr.onreadystatechange = function(){
      appAppt.config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl : 'index.html',
+                templateUrl : '/pages/index.html',
                 // controller  : 'mainController'
             })
             .when('/new', {
-                templateUrl : 'new-appt.html',
+                templateUrl : '/pages/new-appt.html',
                 // controller  : 'newController'
             })
             .when('/edit', {
-                templateUrl : 'edit-appt.html',
+                templateUrl : '/pages/edit-appt.html',
                 // controller  : 'editController'
             })
             .when('/details', {
-                templateUrl : 'appt-detail.html',
+                templateUrl : '/pages/appt-detail.html',
                 // controller  : 'detailsController'
             })
     });
 
-    // create the controller and inject Angular's $scope
-    apptApp.controller('mainController', function($scope) {
+    // // create the controller and inject Angular's $scope
+    // apptApp.controller('mainController', function($scope) {
+    //
+    // });
+    //
+    // apptApp.controller('newController', function($scope) {
+    //
+    // });
+    //
+    // apptApp.controller('editController', function($scope) {
+    //
+    // });
+    //
+    // apptApp.controller('detailsController', function($scope) {
+    //
+    // });
 
-    });
 
-    apptApp.controller('newController', function($scope) {
+// };
 
-    });
-
-    apptApp.controller('editController', function($scope) {
-
-    });
-
-    apptApp.controller('detailsController', function($scope) {
-
-    });
-
-
-};
-
-})();
+// })();
