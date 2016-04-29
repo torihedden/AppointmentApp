@@ -140,14 +140,14 @@ for (var i = 0; i < storage.length; i++){
   var detailCity = splitCity[0]
   var detailState = splitCity[1]
 
-  $.getJSON("http://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + detailState + "/" + detailCity + ".json", function(json) {
+  $.getJSON("https://api.wunderground.com/api/b80f8aa82340bfd9/conditions/q/" + detailState + "/" + detailCity + ".json", function(json) {
 
     // console.log(detailCity);
     // console.log(detailState);
 
     switch(json.current_observation.weather) {
       case "Clear":
-          $(".weather-icon").append('<img src="http://icons.wxug.com/i/c/k/clear.gif" width=100px></img>');
+          $(".weather-icon").append('<img src="https://icons.wxug.com/i/c/k/clear.gif" width=100px></img>');
           $(".detail-summary").append(" " + json.current_observation.weather);
           break;
       case "Scattered Clouds":
@@ -155,7 +155,7 @@ for (var i = 0; i < storage.length; i++){
       case "Cloudy":
       case "Mostly Cloudy":
       case "Partly Cloudy":
-          $(".weather-icon").append('<img src="http://icons.wxug.com/i/c/k/cloudy.gif" width=100px></img>');
+          $(".weather-icon").append('<img src="https://icons.wxug.com/i/c/k/cloudy.gif" width=100px></img>');
           $(".detail-summary").append(" " + json.current_observation.weather);
           break;
       case "Rain":
@@ -164,7 +164,7 @@ for (var i = 0; i < storage.length; i++){
       case "Drizzle":
       case "Light Drizzle":
       case "Heavy Drizzle":
-        $(".weather-icon").append('<img src="http://icons.wxug.com/i/c/k/rain.gif" width=100px></img>');
+        $(".weather-icon").append('<img src="https://icons.wxug.com/i/c/k/rain.gif" width=100px></img>');
         $(".detail-summary").append(" " + json.current_observation.weather);
         break;
       case "Sleet":
@@ -173,7 +173,7 @@ for (var i = 0; i < storage.length; i++){
       case "Light Hail":
       case "Heavy Hail":
       case "Small Hail":
-        $(".weather-icon").append('<img src="http://icons.wxug.com/i/c/k/sleet.gif" width=100px></img>');
+        $(".weather-icon").append('<img src="https://icons.wxug.com/i/c/k/sleet.gif" width=100px></img>');
         $(".detail-summary").append(" " + json.current_observation.weather);
         break;
       case "Snow":
@@ -182,13 +182,13 @@ for (var i = 0; i < storage.length; i++){
       case "Snow Grains":
       case "Light Snow Grains":
       case "Heavy Snow Grains":
-        $(".weather-icon").append('<img src="http://icons.wxug.com/i/c/k/snow.gif" width=100px></img>');
+        $(".weather-icon").append('<img src="https://icons.wxug.com/i/c/k/snow.gif" width=100px></img>');
         $(".detail-summary").append(" " + json.current_observation.weather);
         break;
       case "Thunderstorm":
       case "Light Thunderstorm":
       case "Heavy Thunderstorm":
-        $(".weather-icon").append('<img src="http://icons.wxug.com/i/c/k/tstorms.gif" width=100px></img>');
+        $(".weather-icon").append('<img src="https://icons.wxug.com/i/c/k/tstorms.gif" width=100px></img>');
         $(".detail-summary").append(" " + json.current_observation.weather);
         break;
       case "Fog":
@@ -197,7 +197,7 @@ for (var i = 0; i < storage.length; i++){
       case "Mist":
       case "Light Mist":
       case "Heavy Mist":
-        $(".weather-icon").append('<img src="http://icons.wxug.com/i/c/k/fog.gif" width=100px></img>');
+        $(".weather-icon").append('<img src="https://icons.wxug.com/i/c/k/fog.gif" width=100px></img>');
         $(".detail-summary").append(" " + json.current_observation.weather);
       default:
           $(".detail-summary").append(json.current_observation.weather);//default case is just print string
