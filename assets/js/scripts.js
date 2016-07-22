@@ -283,7 +283,7 @@ else {
   $("a").hide();
   $("span").hide();
   console.log("Please use your mobile device!!")
-  $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.<br><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>Alteratively, right click to inspect and use viewport spoofing on your non-mobile device.</div>')
+  $("body").append('<div class = "no-mobile">Please use your mobile device to access this app.<br><img class = "mobile-phone" src = "assets/img/sadPhone.png"></img>Alternatively, right click to inspect and use viewport spoofing on your non-mobile device.</div>')
 
 };
 });
