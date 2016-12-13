@@ -1,2 +1,2 @@
-# SAMANTHA-IN-THE-BOARDROOM-MIRANDA-IN-THE-BEDROOM
-## WE KNOW IT'S NOT IDEAL BUT IT'S WHO WE ARE
+# AppointmentApp
+## An experiment in using jQuery and local storage to make a simple appointments app
